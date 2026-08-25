@@ -1,0 +1,8 @@
+name: naive-ci
+on: [push, workflow_dispatch]
+jobs:
+  hello:
+    runs-on: ec2-naive
+    steps:
+      - run: echo "Running on $(hostname) as $(whoami)"
+      - run: uname -a
