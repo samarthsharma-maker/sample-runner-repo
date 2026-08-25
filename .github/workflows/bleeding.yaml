@@ -1,0 +1,10 @@
+name: state-bleed
+on: workflow_dispatch
+jobs:
+  contaminate:
+    runs-on: ec2-naive
+    steps:
+      - run: |
+          echo "run at $(date)" >> /tmp/leftover.txt
+          echo "--- contents of a file that should NOT persist between jobs ---"
+          cat /tmp/leftover.txt
